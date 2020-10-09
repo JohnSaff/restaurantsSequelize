@@ -1,5 +1,5 @@
 const { TestScheduler } = require("jest")
-const {Restaurant,Menu,Item,sequelize} = require('./models')
+const {Restaurant,Menu,Item,Rating,sequelize} = require('./models')
 
 
 describe('restaurant',()=>{
@@ -34,5 +34,12 @@ describe('restaurant',()=>{
         expect(items.length).toBe(1)
 
 
+    })
+    test('can add rating to restaurant',async()=>{
+        const restaurant = await Restaurant.create({name:"presuming ed's",image:'wdkjlfn.png'})
+        const rating = await Rating.create({rating:5})
+        await restaurant.addRating(rating)
+        const ratings = await restaurant.getRatings()
+        expect(ratings.length).toBe(1)
     })
 })

@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+/* css for mobile goes here */
+body{
+    background-color: rgb(255,209,220);
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+    margin: 1rem;
+}
+
+a:link{
+    color:black;
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    outline-style:solid;
+    outline-color:grey;
+}
+
+
+article {
+    border-radius: 25px;
+    display:block;
+    background-color:white;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right:0;
+    gap: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(30px,max-content) 50px auto;
+    grid-template-areas:
+        'header2 '
+        'image '
+        'menu'
+        ;
+    justify-content: center;
+
+}
+
+.menuHeader{
+    grid-area: menuHeader;
+    align-self: end;
+}
+h2{
+    align-self:end;
+    grid-area: header2;
+    text-align:center;
+    background-color: white;
+}
+.img1{
+    display: block;
+    overflow: hidden;
+    margin-right:auto;
+    margin-left:auto;
+}
+.menu{
+    grid-area: menu;
+    text-align:center;
+    background-color: white;
+}
+
+
+
+@media screen and (min-width: 650px) {
+  /* css for mid screens goes here */
+    section {
+        margin: 1rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: none;
+        gap: 1rem;
+    }
+    article {
+        width: calc(100%);
+        margin:0;
+    }
+}
+@media screen and (min-width: 1200px) {
+  /* css for massive screens goes here */
+  section {
+        margin: 1rem;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: none;
+        gap: 1rem;
+    }
+    article {
+        width: calc(100%);
+        margin:0;
+    }
+}
+
+
+.article1{
+    display: block;
+    background-color:white;
+    width : 90%;
+    padding: 15px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left: auto;
+    margin-right:auto;
+    max-width:1000px;
+}
+
+.restaurantItems{
+
+}
+
+.items {
+    border-radius: 25px;
+    display:grid;
+    background-color:white;
+    width: calc(100% - 2rem - 50px);
+    margin: 1rem;
+    padding:25px;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        'header2 header2'
+        'items items'
+        ;
+    justify-content: center;
+}
+
+.itemlist{
+    grid-area: items;
+    background-color: white;
+}
+.pricelist{
+    grid-area:price;
+}
+
+nav a:link{
+    color:black;
+}
+nav a:visited{
+    color:black;
+}
+nav a:hover{
+    color:white;
+    outline-style:none;
+}1
+nav a:active{
+    color:white;
+}
+
+
+.input1{
+    outline:none;
+    border:none;
+    margin:1rem;
+    height: 1.5rem;
+    width: calc(100% - 2rem);
+    border-bottom:1px solid grey;
+
+}
+
+.submit1{
+    outline:none;
+    border: none;
+    background: white;
+    font-size: 1.2rem;
+    height:2rem;
+    margin:1rem;
+    color:black;
+    width:calc(100% - 2rem)
+}
+.submit1:hover{
+    outline-style:solid;
+    outline-color:grey;
+}
+.input2{
+    outline:none;
+    border:none;
+    margin:0rem;
+    height: 1rem;
+    width: calc(100% - 2rem);
+    border-bottom:1px solid grey;
+
+}
+
+.submit2{
+    outline:none;
+    border: none;
+    background: white;
+    font-size: 0.8rem;
+    height:1rem;
+    margin:0rem;
+    color:black;
+    width:calc(100% - 2rem)
+}
+.submit2:hover{
+    outline-style:solid;
+    outline-color:grey;
+}

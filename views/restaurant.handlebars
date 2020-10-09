@@ -1,0 +1,72 @@
+<div style="width:100%; height:10rem;background-image: url('{{restaurant.image}}');background-position: center;position:relative;top:0;">
+    <div style="width:100%;height:3rem;position:absolute;bottom:0em; background-color:white; opacity:50%">
+    </div>
+    <div>
+        <h1 style="color: black;position:absolute;bottom:0em;margin-bottom:0;">{{restaurant.name}} {{aveRating}}⭐️<a href="/restaurants/{{restaurant.id}}/delete">❌</a><a href="/restaurants/{{restaurant.id}}/edit">✏️</a></h1>
+    </div>
+</div>
+<section>
+{{#each menus}}
+<article class = 'items'>
+    <h2>{{this.title}}<a href="/restaurants/{{../restaurant.id}}/menus/{{this.id}}/delete">❌</a><a href="/restaurants/{{../restaurant.id}}/menus/{{this.id}}/edit">✏️</a></h2>
+    <table class='itemlist'>
+        {{#each this.items}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td style="width: 2rem;"></td>
+            <td>£{{this.price}}</td>
+            <td ><a href="/restaurants/{{../../restaurant.id}}/menus/{{../this.id}}/items/{{this.id}}/delete">❌</a><a href="/restaurants/{{../../restaurant.id}}/menus/{{../this.id}}/items/{{this.id}}/edit">✏️</a></td>
+        </tr>
+        <tr></tr>
+        {{/each}}
+    </table>
+    <div style="font-size:0.8rem;padding-top:1.6rem;">
+        add an item
+    </div>
+        <form action="/restaurants/:id" method="POST">
+            <div>
+                <input class="input2" type="text" name = "name" placeholder="item name" required/><br>
+                <input class='input2' type="nuber" name="price" placeholder="price" required/><br>
+                <input type='hidden' name = "menuID" value = {{this.id}}>
+                <input type='hidden' name = "restaurantID" value = {{../restaurant.id}}>
+                <input type='hidden' name = "method" value = "addItem">
+                <button class='submit2'>submit</button>
+            </div>
+
+        </form>
+</article>
+{{/each}}
+<article style="margin: 1rem; width: calc(100% - 2rem);">
+    <h2>add a menu</h2>
+    <form action="/restaurants/{{restaurant.id}}" method="POST">
+            <div>
+                <input class="input1" type="text" name = "name" placeholder="menu name" required/><br>
+                <input type='hidden' name = "restaurantID" value = {{restaurant.id}}>
+                <input type='hidden' name = "method" value = "addMenu">
+                <button class='submit1'>submit</button>
+            </div>
+
+        </form>
+</article>
+<article style="margin: 1rem; width: calc(100% - 2rem);">
+    <h2>add a rating</h2>
+            <form action="/restaurants/{{restaurant.id}}" method="POST">
+                <div style='width: calc(100% - 2rem);text-align:center;margin: 1rem;'>
+                    <label>1</label>
+                    <input name='rating' type='radio' value=1 required/>
+                    <label>2</label>
+                    <input name='rating' type='radio' value=2 />
+                    <label>3</label>
+                    <input name='rating' type='radio' value=3 />
+                    <label>4</label>
+                    <input name='rating' type='radio' value=4 />
+                    <label>5</label>
+                    <input name='rating' type='radio' value=5 />
+                    <input type='hidden' name='method' value='addRating' />
+                    <button class='submit1'> submit</button>
+                </div>
+
+            </form>
+    <h2><a href="/restaurants/{{restaurant.id}}/rate/edit">remove ratings</a></h2>
+</article>
+</section>

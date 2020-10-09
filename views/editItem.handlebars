@@ -1,0 +1,13 @@
+<article>
+        <h2>editing {{item.title}}</h2>
+        <form action="/restaurants/{{restaurant.id}}/menus/{{menu.id}}/items/{{item.id}}/edit" method="POST">
+            <div>
+                <h4 style="margin-left:1rem;">item name</h4>
+                <input class="input1" type="text" name = "name" placeholder="item name" value="{{item.name}}" required/><br>
+                <h4 style="margin-left:1rem;">item price</h4>
+                <input class="input1" type="number" name = "price" placeholder="item price" value={{item.price}} required/><br>
+                <button class='submit1'>update</button>
+            </div>
+
+        </form>
+</article>

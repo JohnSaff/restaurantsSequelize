@@ -1,0 +1,14 @@
+<article>
+    <h2>deleting ratings for {{restaurant.name}}</h2>
+    <section>
+        <table>
+            {{#each ratings}}
+                <tr>
+                    <td>{{this.rating}}</td>
+                    <td><a href="/restaurants/{{../restaurant.id}}/rate/{{this.id}}/delete">❌</a><td></td>
+                 </tr>
+            {{/each}}
+        </table>
+    </section>
+    <h2><a href="/restaurants/{{restaurant.id}}">back</a></h2>
+</article>

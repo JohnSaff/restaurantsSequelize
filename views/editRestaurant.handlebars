@@ -1,0 +1,12 @@
+<article>
+        <h2>editing {{restaurant.name}}</h2>
+        <form action="/restaurants/{{restaurant.id}}/edit" method="POST">
+            <div>
+                <h4 style="margin-left:1rem;">name</h4>
+                <input class="input1" type="text" name = "name" placeholder="restaurant name" value="{{restaurant.name}}" required/><br>
+                <input class="input1" type="url" name = "image" placeholder="restaurant image" value={{restaurant.image}} required/><br>
+                <button class='submit1'>update</button>
+            </div>
+
+        </form>
+</article>
